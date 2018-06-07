@@ -1,6 +1,7 @@
 {
   "name": "BasicApp",
   "version": "1.0.0",
+  "homepage": "https://wymna.github.io/shudian/",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
