@@ -1,0 +1,82 @@
+webpack知识学习
+1.
+
+
+
+step：
+1.yarn init
+2.yarn global add webpack@2.6.1
+ exec wepack  error 
+ ===============
+ No configuration file found and no output filename configured via CLI option.
+A configuration file could be named 'webpack.config.js' in the current directory.
+Use --help to display the CLI options.
+============
+3.in the root dir, mkdir webpack.config.js
+4.随便建立一个js文件通过webpack能打包，
+5.makdir dist/index.htm 引导本目录下生成的合成js，参看建立打包1
+启动live server
+说明webpack 打包很厉害，最后页面加载bundle。js
+
+
+Invalid configuration object. Webpack has been initialised using a configuration object that does not match the API schema.
+ - configuration.output.filename: A relative path is expected. However the provided value "G:\\react\\demo\\demo3\\dist/bundle.js" is an absolute path!
+   Please use output.path to specify absolute path and output.filename for 
+
+   ==== filename:'/bundle.js' 检查
+   filename:'bundle.js' 
+
+
+   6.modify package
+    add "scripts":{
+    "dev":"webpack -d"
+  },
+  7.add babel 
+  yarn add babel-preset-es2015 babel-preset-react  babel-loader -D
+  yarn add babel-core -D
+  8.add react react-dom
+
+  以上就是客户端react application从最开始建立的过程然后后面
+  通过liveserver 工具启动，或者express
+
+  9，引导css 
+  -- yarn add css-loader -D  仅仅是打包到合成js中 注意css文件要放到依赖app.js中因为webpack是一根筋穿起来
+   ---yarn add style-loader -D  首页添加style 需要先删掉合成js
+
+  条件：放入app.css  in src
+
+
+
+
+   --yarn add file-loader -D
+ 条件：放入png  css引导 in src
+ 与css文件放到同级
+==================
+ ERROR in ./src/react.png
+Module parse failed: G:\react\demo\demo3\src\react.png Unexpected character
+'�' (1:0)
+You may need an appropriate loader to handle this file type.
+(Source code omitted for this binary file)
+
+==============
+ {
+        test:/\.(jpe?g|png|gif|svg)$/i,
+        use:'file-loader'
+      }
+
+
+
+  -- yarn add image-webpack-loader -D
+
+  -- yarn add sass-loader  node-sass -D
+   "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+  --yarn add http-server -D
+     "http-server":"http-server dist/"
+    yarn run http-server  只是启动
+
+
+ "react-router-dom": "^4.1.2",
+  "babel-preset-env", "react", "stage-2" .babellrc
+   "babel-preset-env": "^1.6.0",
+   "babel-preset-stage-2": "^6.24.1",
